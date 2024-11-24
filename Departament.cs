@@ -8,7 +8,6 @@ using System.Xml.Serialization;
 namespace Organisation
 {
 	[Serializable]
-	[XmlRoot("Departament")]
 	public class Departament 
 	{
 		public Departament() {

@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 
 namespace Organisation
 {
+	[Serializable]
 	[XmlRoot("OrganisationInfo")]
 	public class Organisation
 	{
@@ -36,25 +37,33 @@ namespace Organisation
 		public List<Departament> departamentList;
 		public void SaveToFile (string name)
 		{
-			XmlSerializer serializer = new XmlSerializer(typeof(Departament));
+			XmlSerializer serializer = new XmlSerializer(typeof(Organisation));
 			using (TextWriter writer = new StreamWriter(name))
-			{
-				foreach (var item in departamentList)
-				{
-					serializer.Serialize(writer, item);
-				}
-			}
+				serializer.Serialize(writer, this);
+			//{
+			//	foreach (var item in departamentList)
+			//	{
+			//		serializer.Serialize(writer, item);
+			//	}
+			//}
 
 		}
 		public void LoadFromFile(string name)
 		{
 			departamentList.Clear();
-			XmlSerializer serializer = new XmlSerializer(typeof(Departament));
+			XmlSerializer serializer = new XmlSerializer(typeof(Organisation));
 			using (TextReader reader = new StreamReader(name))
 			{
-				var res = serializer.Deserialize(reader) as Departament;
+				var res = serializer.Deserialize(reader) as Organisation;
 				if(res != null)
-					departamentList.Add(res);
+				{
+					departamentList.Clear();
+					foreach (var departament in res.departamentList)
+					{
+						departamentList.Add(departament);
+					}
+				}
+				
 			}
 		}
 	}
