@@ -10,49 +10,49 @@ namespace Organisation
 	class Departament 
 	{
 		public Departament() {
-			name = "";
-			manager = "";
+			Name = "";
+			Manager = "";
 		}
 
 		public Departament(string n, string m)
 		{
-			name = n;
-			manager = m;
+			Name = n;
+			Manager = m;
 		}
 
-		public string name { get; set; }
-		public string manager { get; set; }
-		public List<Empl> employees { get; set; } = new List<Empl>();
-		public List<Departament> sub_deps { get; set; } = new List<Departament>();
+		public string Name { get; set; }
+		public string Manager { get; set; }
+		public List<Empl> Employees { get; set; } = new List<Empl>();
+		public List<Departament> Sub_deps { get; set; } = new List<Departament>();
 
 		public Departament? FindDep(string name)
 		{
-			return sub_deps.FirstOrDefault(e => e.name == name);
+			return Sub_deps.FirstOrDefault(e => e.Name == name);
 		}
 		public void AddSubDep(Departament sub_dep)
 		{
-			sub_deps.Add(sub_dep);
+			Sub_deps.Add(sub_dep);
 		}
 
 		public void AddEmpl(Empl empl)
 		{
-			employees.Add(empl);
+			Employees.Add(empl);
 		}
 
 		public bool RemoveEmpl(Empl empl)
 		{
-			return employees.Remove(empl);
+			return Employees.Remove(empl);
 		}
 
 		public bool RemoveSubdep(Departament subdep)
 		{
-			if(sub_deps.Contains(subdep))
+			if(Sub_deps.Contains(subdep))
 			{
-				return sub_deps.Remove(subdep);
+				return Sub_deps.Remove(subdep);
 			}
 			else
 			{
-				foreach(Departament dep in sub_deps)
+				foreach(Departament dep in Sub_deps)
 				{
 					if(dep.RemoveSubdep(dep))
 						return true;

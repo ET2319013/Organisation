@@ -55,12 +55,12 @@ namespace Organisation
 				var seldep = selnode.Tag as Departament;
 				if (seldep != null)
 				{
-					label2.Text = seldep.name + ", " + seldep.manager;
-					foreach (var empl in seldep.employees)
+					label2.Text = seldep.Name + ", " + seldep.Manager;
+					foreach (var empl in seldep.Employees)
 					{
 						var item = new TreeNode();
 						item.Tag = empl;
-						item.Text = empl.name + ", " + empl.position;
+						item.Text = empl.Name + ", " + empl.Position;
 						treeView2.Nodes.Add(item);
 					}
 				}
@@ -73,10 +73,10 @@ namespace Organisation
 			TreeNode node = new()
 			{
 				Tag = dep,
-				Name = dep.name,
-				Text = dep.name
+				Name = dep.Name,
+				Text = dep.Name
 			};
-			foreach (var subdep in dep.sub_deps)
+			foreach (var subdep in dep.Sub_deps)
 			{
 				var subnode = FillNode(subdep);
 				node.Nodes.Add(subnode);
@@ -114,7 +114,7 @@ namespace Organisation
 				if (seldep != null)
 				{
 					New_dep dialog = new New_dep();
-					dialog.Add_Dep(seldep.name);
+					dialog.Add_Dep(seldep.Name);
 					var result = dialog.ShowDialog();
 					if (result == DialogResult.OK)
 					{
@@ -135,15 +135,15 @@ namespace Organisation
 				var seldep = selnode.Tag as Departament;
 				if (seldep != null)
 				{
-					if (MessageBox.Show(this, "Remove " + seldep.name + " deparatment?", "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					if (MessageBox.Show(this, "Remove " + seldep.Name + " deparatment?", "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 					{
 						if (myorg.RemoveDep(seldep))
 						{
-							MessageBox.Show(this, seldep.name + " deparatment sucsessfully removed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							MessageBox.Show(this, seldep.Name + " deparatment sucsessfully removed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						}
 						else
 						{
-							MessageBox.Show(this, seldep.name + " deparatment not found", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							MessageBox.Show(this, seldep.Name + " deparatment not found", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						}
 						//need to remove dep from myorg
 					}
@@ -167,7 +167,7 @@ namespace Organisation
 				if (seldep != null)
 				{
 					New_dep dialog = new New_dep();
-					dialog.Add_Emp(seldep.name);
+					dialog.Add_Emp(seldep.Name);
 					var result = dialog.ShowDialog();
 					if (result == DialogResult.OK)
 					{
@@ -195,16 +195,16 @@ namespace Organisation
 				var seldep = selnode1.Tag as Departament;
 				if (selempl != null && seldep != null)
 				{
-					if (MessageBox.Show(this, "Remove " + selempl.name + " employeer?", "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					if (MessageBox.Show(this, "Remove " + selempl.Name + " employeer?", "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 					{
 						if (seldep.RemoveEmpl(selempl))
 						{
 							DoRefreshList();
-							MessageBox.Show(this, selempl.name + " employeer sucsessfully removed from " + seldep.name, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+							MessageBox.Show(this, selempl.Name + " employeer sucsessfully removed from " + seldep.Name, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						}
 						else
 						{
-							MessageBox.Show(this, selempl.name + " employeer not found in " + seldep.name, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+							MessageBox.Show(this, selempl.Name + " employeer not found in " + seldep.Name, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
 						}
 						//need to remove dep from myorg
 					}

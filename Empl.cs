@@ -10,11 +10,11 @@ namespace Organisation
 	class Empl
 	{
 		public Empl(string n, string p) {
-			name = n;
-			position = p;
+			Name = n;
+			Position = p;
 		}
-		public string name { get; set; }
-		public string position { get; set; }
+		public string Name { get; set; }
+		public string Position { get; set; }
 		//public Departament departament { get; set; }
 	}
 }
