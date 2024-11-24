@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Organisation
 {
 	[Serializable]
-	class Departament 
+	[XmlRoot("Departament")]
+	public class Departament 
 	{
 		public Departament() {
 			Name = "";
@@ -19,10 +21,13 @@ namespace Organisation
 			Name = n;
 			Manager = m;
 		}
-
+		[XmlElement("Name")]
 		public string Name { get; set; }
+		[XmlElement("Manager")]
 		public string Manager { get; set; }
+		[XmlArray("Employees")]
 		public List<Empl> Employees { get; set; } = new List<Empl>();
+		[XmlArray("Sub_deps")]
 		public List<Departament> Sub_deps { get; set; } = new List<Departament>();
 
 		public Departament? FindDep(string name)

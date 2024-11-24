@@ -59,17 +59,16 @@
 			// 
 			// button2
 			// 
-			button2.Enabled = false;
 			button2.Location = new Point(154, 12);
 			button2.Name = "button2";
 			button2.Size = new Size(139, 29);
 			button2.TabIndex = 1;
 			button2.Text = "Load from File";
 			button2.UseVisualStyleBackColor = true;
+			button2.Click += Button2_Click;
 			// 
 			// button3
 			// 
-			button3.Enabled = false;
 			button3.Location = new Point(299, 12);
 			button3.Name = "button3";
 			button3.Size = new Size(94, 29);
@@ -157,12 +156,12 @@
 			contextMenuStrip2.ImageScalingSize = new Size(20, 20);
 			contextMenuStrip2.Items.AddRange(new ToolStripItem[] { removeEmplToolStripMenuItem });
 			contextMenuStrip2.Name = "contextMenuStrip2";
-			contextMenuStrip2.Size = new Size(211, 56);
+			contextMenuStrip2.Size = new Size(167, 28);
 			// 
 			// removeEmplToolStripMenuItem
 			// 
 			removeEmplToolStripMenuItem.Name = "removeEmplToolStripMenuItem";
-			removeEmplToolStripMenuItem.Size = new Size(210, 24);
+			removeEmplToolStripMenuItem.Size = new Size(166, 24);
 			removeEmplToolStripMenuItem.Text = "remove empl";
 			removeEmplToolStripMenuItem.Click += removeEmplToolStripMenuItem_Click;
 			// 

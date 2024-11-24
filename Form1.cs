@@ -182,7 +182,7 @@ namespace Organisation
 
 		private void ContextMenuStrip2_Opening(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			
+
 		}
 
 		private void removeEmplToolStripMenuItem_Click(object sender, EventArgs e)
@@ -210,6 +210,12 @@ namespace Organisation
 					}
 				}
 			}
+		}
+
+		private void Button2_Click(object sender, EventArgs e)
+		{
+			myorg.LoadFromFile("save.xml");
+			DoRefreshDeps();
 		}
 	}
 }
