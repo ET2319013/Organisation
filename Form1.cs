@@ -12,20 +12,99 @@ namespace Organisation
 
 		private void InputTestData(object sender, EventArgs e)
 		{
-			var newdep = new Departament("Great Music", "Mozart");
+			var newdep = new Departament("Executive Management", "J. Oppen");
 			myorg.departamentList.Add(newdep);
-			var newsub = new Departament("Rock-n-Roll", "Elvis");
-			newdep.AddSubDep(newsub);
-			newsub.AddEmpl(new Empl("John Lennon", "solo guitar"));
-			newsub.AddEmpl(new Empl("Paul MacCartney", "bass"));
+			var newsub = new Departament("Strategic Planning", "N. Marshmann");
+            var newsublv2 = new Departament("Market Analysis", "P. Elvis");
+            var newsublv3 = new Departament("Legal Compliance", "S. Hoshimachi");
 
-			newsub = new Departament("Grang", "Cobain");
-			newdep.AddSubDep(newsub);
-			newsub.AddEmpl(new Empl("Krist Novoselic", "solo guitar"));
-			newsub.AddEmpl(new Empl("Chad Channing", "bass"));
+            newdep.AddSubDep(newsub); // Dept 1
+			newsub.AddEmpl(new Empl("K. Lin", "Senior Analyst"));
+			newsub.AddEmpl(new Empl("S. Palin", "Junior Analyst"));
+            newsub.AddEmpl(new Empl("J. McCain", "Junior Analyst"));
+            newsub.AddSubDep(newsublv2);
+            newsublv2.AddEmpl(new Empl("A. Yang", "Head of Marketing"));
+            newsublv2.AddEmpl(new Empl("B. Sanders", "Senior Analyst"));
+            newsublv2.AddEmpl(new Empl("J. Kerry", "Junior Analyst"));
+            newsublv2 = new Departament("Competitive Intelligence", "J. Vance");
+			newsub.AddSubDep(newsublv2);
+            newsublv2.AddEmpl(new Empl("I. Jon", "Head of Intelligence"));
+            newsublv2.AddEmpl(new Empl("J. Taylor", "Office Cat"));
+            newsublv2.AddEmpl(new Empl("B. Ariandel", "Senior Researcher"));
+            newsublv2.AddSubDep(newsublv3);
+            newsublv3.AddEmpl(new Empl("K. Makise", "Board Liaison"));
+            newsublv3.AddEmpl(new Empl("R. Ocelot", "Head of Compliance"));
+            newsublv3.AddEmpl(new Empl("K. Attano", "Compliance Officer"));
+            newsublv3.AddEmpl(new Empl("E. Caldwin", "Compliance Officer"));
+            newsublv3.AddEmpl(new Empl("J. Caldwin", "Compliance Officer"));
+            newsublv3.AddEmpl(new Empl("V. Sokolov", "Senior Compliance Officer"));
+            newsublv3 = new Departament("Board Relations", "J. Casablancas");
+            newsublv2.AddSubDep(newsublv3);
+            newsublv3.AddEmpl(new Empl("A. Shevtsov", "Corporate Relations Manager"));
+            newsublv3.AddEmpl(new Empl("A. Sikorskiy", "Corporate Relations Manager"));
+            newsublv3.AddEmpl(new Empl("M. Sudin", "Board Secretary"));
+            newsublv3 = new Departament("Risk Management", "J. F. Kennedy");
+            newsublv2.AddSubDep(newsublv3);
+            newsublv3.AddEmpl(new Empl("V. Ramaswami", "Risk Manager"));
+            newsublv3.AddEmpl(new Empl("R. C. Mann", "Risk Analyst"));
+            newsublv3.AddEmpl(new Empl("N. Haley", "Risk Analyst"));
+            newsublv3.AddEmpl(new Empl("A. Gore", "Risk Manager"));
+            newsublv3.AddEmpl(new Empl("J. Libermann", "Risk Manager"));
+            newsublv3.AddEmpl(new Empl("D. Cheney", "Risk Manager"));
+            newsublv2 = new Departament("Financial Risks", "R. F. Kennedy");
+            newsublv3.AddSubDep(newsublv2);
+            newsublv2.AddEmpl(new Empl("M. Frog", "Financial Risk Analyst"));
+            newsublv2.AddEmpl(new Empl("M. Edwards", "Financial Risk Analyst"));
+            newsublv2.AddEmpl(new Empl("T. Donald", "Credit Analyst"));
+            newsublv2 = new Departament("Operational Risks", "R. F. Kennedy Jr.");
+            newsublv3.AddSubDep(newsublv2);
+            newsublv2.AddEmpl(new Empl("M. Carey", "Operational Risk Manager"));
+            newsublv2.AddEmpl(new Empl("A. Bune", "Process Analyst"));
+            newsublv2.AddEmpl(new Empl("S. Uistare", "Process Analyst"));
 
 
-			DoRefreshDeps();
+            newdep = new Departament("Human Resources", "R. Heimer"); // Dept 2
+            myorg.departamentList.Add(newdep);
+            newsub = new Departament("Recruitment & Talent Acquisition", "H. Maho");
+            newdep.AddSubDep(newsub);
+            newsub.AddEmpl(new Empl("V. Zhir", "Recruitment Specialist"));
+            newsub.AddEmpl(new Empl("A. Naval", "Recruitment Specialist"));
+            newsub.AddEmpl(new Empl("S. Miron", "Hiring Coordinator"));
+            newsub.AddEmpl(new Empl("G. Zyuga", "Talent Acquisition Manager"));
+            newsub.AddEmpl(new Empl("V. Dava", "Talent Acquisition Manager"));
+            newsublv2 = new Departament("Training & Development", "M. Kirk");
+            newsub.AddSubDep(newsublv2);
+            newsublv2.AddEmpl(new Empl("H. Tonfa", "Training Manager"));
+            newsublv2.AddEmpl(new Empl("E. Obukhov", "Training Manager"));
+            newsublv2.AddEmpl(new Empl("T. Rakhmetullin", "Development Specialist"));
+            newsublv2.AddEmpl(new Empl("N. Panchak", "Training Manager"));
+            newsublv3 = new Departament("Compensation & Benefits", "C. T. Race");
+            newsublv2.AddSubDep(newsublv3);
+            newsublv3.AddEmpl(new Empl("S. G. Spamton", "Compensation Analyst"));
+            newsublv3.AddEmpl(new Empl("I. Na", "Benefits Coordinator"));
+            newsublv3.AddEmpl(new Empl("A. Morgenshtern", "Payroll Specialist"));	
+            newsublv2 = new Departament("Employee Relations", "V. J. Link");
+            newsub.AddSubDep(newsublv2);
+            newsublv2.AddEmpl(new Empl("V. Saveliev", "Employee Relations Specialist"));
+            newsublv2.AddEmpl(new Empl("O. Mongol", "Employee Relations Specialist"));
+            newsublv2.AddEmpl(new Empl("D. Simon", "Employee Relations Specialist"));
+            newsublv3 = new Departament("Diversity & Inclusion", "F. D. Wokisme");
+            newsublv2.AddSubDep(newsublv3);
+            newsublv3.AddEmpl(new Empl("J. R. Biden", "CEO of Woke"));
+            newsublv3.AddEmpl(new Empl("H. Biden", "Deep State Analyst"));
+            newsublv3.AddEmpl(new Empl("Dr. J. Biden", "Deep State Analyst"));
+            newsublv3.AddEmpl(new Empl("K. Marx", "Marxism Expert"));
+            newsublv3.AddEmpl(new Empl("D. State", "Deep State Expert"));
+            newsublv3 = new Departament("Conflict Resolution", "J. Casablancas");
+            newsublv2.AddSubDep(newsublv3);
+            newsublv3.AddEmpl(new Empl("P. Daft", "Mediation Specialist"));
+            newsublv3.AddEmpl(new Empl("F. Kafe", "Workplace Counselor"));
+            newsublv3.AddEmpl(new Empl("S. Kafe", "Workplace Counselor"));
+
+
+
+
+            DoRefreshDeps();
 
 		}
 
