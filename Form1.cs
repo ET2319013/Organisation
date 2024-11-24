@@ -107,7 +107,24 @@ namespace Organisation
 
 		private void ToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-
+			var selnode = treeView1.SelectedNode;
+			if (selnode != null)
+			{
+				var seldep = selnode.Tag as Departament;
+				if (seldep != null)
+				{
+					New_dep dialog = new New_dep();
+					dialog.Set_Root(seldep.name);
+					var result = dialog.ShowDialog();
+					if(result == DialogResult.OK)
+					{
+						var name = dialog.Get_Name();
+						var manager = dialog.Get_Manager();
+						seldep.AddSubDep(new Departament(name, manager));
+						DoRefreshDeps();
+					}
+				}
+			}
 		}
 
 		private void ToolStripMenuItem2_Click(object sender, EventArgs e)
