@@ -114,9 +114,9 @@ namespace Organisation
 				if (seldep != null)
 				{
 					New_dep dialog = new New_dep();
-					dialog.Set_Root(seldep.name);
+					dialog.Add_Dep(seldep.name);
 					var result = dialog.ShowDialog();
-					if(result == DialogResult.OK)
+					if (result == DialogResult.OK)
 					{
 						var name = dialog.Get_Name();
 						var manager = dialog.Get_Manager();
@@ -137,7 +137,7 @@ namespace Organisation
 				{
 					if (MessageBox.Show(this, "Remove " + seldep.name + " deparatment?", "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 					{
-						if(myorg.RemoveDep(seldep))
+						if (myorg.RemoveDep(seldep))
 						{
 							MessageBox.Show(this, seldep.name + " deparatment sucsessfully removed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						}
@@ -156,6 +156,28 @@ namespace Organisation
 		private void Button3_Click(object sender, EventArgs e)
 		{
 			myorg.SaveToFile("save.xml");
+		}
+
+		private void NewEmployeerToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var selnode = treeView1.SelectedNode;
+			if (selnode != null)
+			{
+				var seldep = selnode.Tag as Departament;
+				if (seldep != null)
+				{
+					New_dep dialog = new New_dep();
+					dialog.Add_Emp(seldep.name);
+					var result = dialog.ShowDialog();
+					if (result == DialogResult.OK)
+					{
+						var name = dialog.Get_Name();
+						var position = dialog.Get_Position();
+						seldep.AddEmpl(new Empl(name, position));
+						DoRefreshList();
+					}
+				}
+			}
 		}
 	}
 }

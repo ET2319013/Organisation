@@ -131,6 +131,7 @@
 			newEmployeerToolStripMenuItem.Name = "newEmployeerToolStripMenuItem";
 			newEmployeerToolStripMenuItem.Size = new Size(180, 24);
 			newEmployeerToolStripMenuItem.Text = "new employeer";
+			newEmployeerToolStripMenuItem.Click += NewEmployeerToolStripMenuItem_Click;
 			// 
 			// label2
 			// 
