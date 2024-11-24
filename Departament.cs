@@ -39,22 +39,16 @@ namespace Organisation
 			employees.Add(empl);
 		}
 
-		public void RemoveEmpl(string name)
+		public bool RemoveEmpl(Empl empl)
 		{
-			employees.RemoveAll(e => e.name == name);
-		}
-
-		public void RemoveSubdep(string name)
-		{
-			sub_deps.RemoveAll(e => e.name == name);
+			return employees.Remove(empl);
 		}
 
 		public bool RemoveSubdep(Departament subdep)
 		{
 			if(sub_deps.Contains(subdep))
 			{
-				sub_deps.Remove(subdep);
-				return true;
+				return sub_deps.Remove(subdep);
 			}
 			else
 			{

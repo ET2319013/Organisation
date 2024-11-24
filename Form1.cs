@@ -179,5 +179,37 @@ namespace Organisation
 				}
 			}
 		}
+
+		private void ContextMenuStrip2_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			
+		}
+
+		private void removeEmplToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var selnode2 = treeView2.SelectedNode;
+			var selnode1 = treeView1.SelectedNode;
+			if (selnode2 != null && selnode1 != null)
+			{
+				var selempl = selnode2.Tag as Empl;
+				var seldep = selnode1.Tag as Departament;
+				if (selempl != null && seldep != null)
+				{
+					if (MessageBox.Show(this, "Remove " + selempl.name + " employeer?", "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+					{
+						if (seldep.RemoveEmpl(selempl))
+						{
+							DoRefreshList();
+							MessageBox.Show(this, selempl.name + " employeer sucsessfully removed from " + seldep.name, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+						}
+						else
+						{
+							MessageBox.Show(this, selempl.name + " employeer not found in " + seldep.name, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+						}
+						//need to remove dep from myorg
+					}
+				}
+			}
+		}
 	}
 }

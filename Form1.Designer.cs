@@ -41,7 +41,10 @@
 			newEmployeerToolStripMenuItem = new ToolStripMenuItem();
 			label2 = new Label();
 			treeView2 = new TreeView();
+			contextMenuStrip2 = new ContextMenuStrip(components);
+			removeEmplToolStripMenuItem = new ToolStripMenuItem();
 			contextMenuStrip1.SuspendLayout();
+			contextMenuStrip2.SuspendLayout();
 			SuspendLayout();
 			// 
 			// button1
@@ -143,10 +146,25 @@
 			// 
 			// treeView2
 			// 
+			treeView2.ContextMenuStrip = contextMenuStrip2;
 			treeView2.Location = new Point(198, 83);
 			treeView2.Name = "treeView2";
 			treeView2.Size = new Size(294, 355);
 			treeView2.TabIndex = 9;
+			// 
+			// contextMenuStrip2
+			// 
+			contextMenuStrip2.ImageScalingSize = new Size(20, 20);
+			contextMenuStrip2.Items.AddRange(new ToolStripItem[] { removeEmplToolStripMenuItem });
+			contextMenuStrip2.Name = "contextMenuStrip2";
+			contextMenuStrip2.Size = new Size(211, 56);
+			// 
+			// removeEmplToolStripMenuItem
+			// 
+			removeEmplToolStripMenuItem.Name = "removeEmplToolStripMenuItem";
+			removeEmplToolStripMenuItem.Size = new Size(210, 24);
+			removeEmplToolStripMenuItem.Text = "remove empl";
+			removeEmplToolStripMenuItem.Click += removeEmplToolStripMenuItem_Click;
 			// 
 			// OrganisationForm
 			// 
@@ -163,6 +181,7 @@
 			Name = "OrganisationForm";
 			Text = "Organisation";
 			contextMenuStrip1.ResumeLayout(false);
+			contextMenuStrip2.ResumeLayout(false);
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -181,5 +200,7 @@
 		private ToolStripMenuItem toolStripMenuItem1;
 		private ToolStripMenuItem toolStripMenuItem2;
 		private ToolStripMenuItem newEmployeerToolStripMenuItem;
+		private ContextMenuStrip contextMenuStrip2;
+		private ToolStripMenuItem removeEmplToolStripMenuItem;
 	}
 }
